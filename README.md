@@ -1,3 +1,8 @@
+npm install
+npm run dev
+
+
+
 Este proyecto consiste en el desarrollo de una API REST utilizando Node.js, Express y MySQL, orientada a la gestión de plugins de audio.
 
  Dependencias instaladas

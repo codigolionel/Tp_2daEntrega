@@ -10,20 +10,22 @@ exports.getById = async (id) => {
   return rows[0];
 };
 
-exports.create = async ({ nombre, tipo, empresa, gratis, fecha, aplicacion }) => {
+
+exports.create = async ({ nombre, tipo, empresa, gratis, imagen, aplicacion }) => {
   const [result] = await pool.query(
-    'INSERT INTO plugins (nombre, tipo, empresa, gratis, fecha, aplicacion) VALUES (?, ?, ?, ?, ?, ?)',
-    [nombre, tipo, empresa, gratis, fecha, aplicacion]
+    'INSERT INTO plugins (nombre, tipo, empresa, gratis, imagen, aplicacion) VALUES (?, ?, ?, ?, ?, ?)',
+    [nombre, tipo, empresa, gratis, imagen, aplicacion]
   );
-  return { id: result.insertId, nombre, tipo, empresa, gratis, fecha, aplicacion };
+  return { id: result.insertId, nombre, tipo, empresa, gratis, imagen, aplicacion };
 };
 
-exports.update = async (id, { nombre, tipo, empresa, gratis, fecha, aplicacion }) => {
+
+exports.update = async (id, { nombre, tipo, empresa, gratis, imagen, aplicacion }) => {
   await pool.query(
-    'UPDATE plugins SET nombre = ?, tipo = ?, empresa = ?, gratis = ?, fecha = ?, aplicacion = ? WHERE id = ?',
-    [nombre, tipo, empresa, gratis, fecha, aplicacion, id]
+    'UPDATE plugins SET nombre = ?, tipo = ?, empresa = ?, gratis = ?, imagen = ?, aplicacion = ? WHERE id = ?',
+    [nombre, tipo, empresa, gratis, imagen, aplicacion, id]
   );
-  return { id, nombre, tipo, empresa, gratis, fecha, aplicacion };
+  return { id, nombre, tipo, empresa, gratis, imagen, aplicacion };
 };
 
 exports.remove = async (id) => {
